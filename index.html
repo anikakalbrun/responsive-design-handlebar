@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<!-- This is a complete example of an image gallery -->
+
+<html lang="en">
+  <head>
+    <!-- use the head section to define meta data and load css and js files -->
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Gallery</title>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="assignment.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        
+      <div class="page-header">
+        <h1>Animals</h1>
+      </div> 
+    </div>
+    
+    <div class="container">
+
+      <!-- A navigation menu that selects different views -->
+       <ul class="nav nav-tabs">
+            <li role="" class="active"><a href="#" id="home-tab" >Home</a></li>
+            <li role=""><a href="#" id="animal-tab" >About Animals</a></li>
+        </ul>
+      <br/>
+
+      <!-- the content section is empty as we will fill it 
+            via javascript and templates -->
+      <div id="content"  class="container-fluid"  role="main">
+      </div>
+    </div> <!-- / container -->
+    
+    
+    <script id="home-template" type="text/x-handlebars-template">
+        <div class="row">
+            {{#each this.category}}
+            <div class="col-xs-12 col-sm-6 col-md-4"> 
+                      <h2 class="mainlink" data-animals="{{@index}}"><a> {{name}} </a></h2>
+                      <h3 class="link"> {{{animalsSpecies animals @index }}} </h3> 
+            </div>
+            {{/each}}
+        </div>
+    </script>
+    
+    
+     <script id="animal-template" type="text/x-handlebars-template">
+        <div class="row">
+          {{#each this}}  
+            <div class="col-xs-12"> 
+                <h1>{{name}}</h1>
+                <p>{{description}}</p>
+                <div class="col-xs-12 col-md-6"> 
+                    <div class="image" style="background-image: url({{image1}})"></div>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <div class="image hidden-xs hidden-sm" style="background-image: url({{image2}})"></div>
+                </div>
+            </div>
+            {{/each}}    
+        </div>
+    </script>
+    
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/handlebars-v3.0.3.js"></script>   
+    <script src="AnimalsData.js"></script>
+    <script src="assignment.js"></script>
+
+    
+  
+
+  
+</body>
+</html>
